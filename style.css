@@ -1,0 +1,178 @@
+:root {
+    --ai-explainer-bg: #1e1e1e;
+    --ai-explainer-text: #d4d4d4;
+    --ai-explainer-border: #333333;
+    --ai-explainer-header-bg: #252526;
+    --ai-explainer-primary: #a855f7;
+    --ai-explainer-code-bg: #2a2a2b;
+    --ai-explainer-pre-bg: #1a1a1a;
+}
+
+#ai-explainer-trigger {
+    position: fixed;
+    z-index: 9999999;
+    display: none;
+    cursor: pointer;
+    background-color: var(--ai-explainer-bg);
+    border: 1px solid var(--ai-explainer-border);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#ai-explainer-trigger:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+#ai-explainer-trigger .ai-explainer-icon {
+    color: var(--ai-explainer-primary);
+    width: 100%;
+    height: 100%;
+}
+
+#ai-explainer-panel {
+    all: initial; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    position: fixed;
+    z-index: 9999999;
+    top: 20px;
+    right: 20px;
+    width: 450px;
+    max-width: 90vw;
+    max-height: 80vh;
+    background-color: var(--ai-explainer-bg);
+    color: var(--ai-explainer-text);
+    border: 1px solid var(--ai-explainer-border);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.ai-explainer-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    background-color: var(--ai-explainer-header-bg);
+    border-bottom: 1px solid var(--ai-explainer-border);
+    flex-shrink: 0;
+}
+
+.ai-explainer-panel-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+.ai-explainer-panel-header .ai-explainer-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--ai-explainer-primary);
+}
+
+#ai-explainer-close-btn {
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--ai-explainer-text);
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+#ai-explainer-close-btn:hover {
+    opacity: 1;
+}
+
+.ai-explainer-panel-content {
+  flex: 1;
+  min-height: 0;
+  padding: 16px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+.ai-explainer-panel-content p {
+    margin: 0 0 1em 0;
+}
+
+.ai-explainer-panel-content strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.ai-explainer-panel-content code {
+    font-family: "SF Mono", "Fira Code", "Source Code Pro", Menlo, Consolas, Monaco, monospace;
+    background-color: var(--ai-explainer-code-bg);
+    color: #ce9178; 
+    border-radius: 4px;
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+}
+
+.ai-explainer-panel-content pre {
+    background-color: var(--ai-explainer-pre-bg);
+    border: 1px solid var(--ai-explainer-border);
+    border-radius: 8px;
+    padding: 12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 1em 0;
+    font-size: 13px;
+}
+
+.ai-explainer-panel-content pre code {
+    background-color: transparent;
+    padding: 0;
+    color: var(--ai-explainer-text);
+}
+
+.ai-explainer-original-code {
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--ai-explainer-border);
+    padding-bottom: 12px;
+}
+.ai-explainer-original-code h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 8px 0;
+}
+
+.ai-explainer-error {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.ai-explainer-loader {
+    margin: 20px auto;
+    border: 4px solid var(--ai-explainer-border);
+    border-top: 4px solid var(--ai-explainer-primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: ai-explainer-spin 1s linear infinite;
+}
+
+@keyframes ai-explainer-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "AI Code Explainer - With Backend",
+  "version": "1.2",
+  "description": "Select any code snippet on a webpage, click the icon, and get an AI-powered explanation.",
+  "permissions": [
+    "identity",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "css": [
+        "style.css"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "oauth2": {
+    "client_id": "400006348850-oeir2gfh6qh5p8fg3dgckh6rc226ir37.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
+  }
+}
